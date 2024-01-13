@@ -1,94 +1,81 @@
-[![Animevariant](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/svelte-manga.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/svelte-manga.yaml)
-[![breath-first-search](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/breath-first-search.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/breath-first-search.yaml)
-[![chatbot-ai](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/chatbot-ai.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/chatbot-ai.yaml)
-[![depth-first-search](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/depth-first-search.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/depth-first-search.yaml)
-[![issues](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/issues.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/issues.yaml)
-[![Lint Code Base](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/linter.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/linter.yaml)
-[![weather](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/weather.yml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/weather.yml)
+# Vector Store Project
+This project aims to create a Vector Store from scratch using Python. The Vector Store is designed to store and manage vectors efficiently, making it an essential component in machine learning, natural language processing, and recommendation systems.
 
-# Animevariant
+## Table of Contents
 
-## Quick Start
+- Introduction
+- Installation
+- Usage
+- Contributing
+- License
 
-## Included Packages and Tools
+## Introduction
+A Vector Store is a data structure that allows for the storage and manipulation of vectors. Vectors are mathematical objects that have both magnitude and direction. This project aims to provide a basic implementation of a Vector Store, which can be further expanded and optimized as per specific requirements.
 
-This Turborepo includes the following packages/apps and utilities:
+## Installation
+To run this project, it is recommended to set up a virtual environment and install the necessary dependencies. Follow the steps below:
 
-### Apps and Packages
+1. **Clone the repository to your local machine.**
+   ```
+   git clone https://github.com/valiantlynx/simple-vector-store.git
+   ```
 
-`docs`: A documentation app with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/)
-`web`: A web app with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/)
-`ui`: A React component library with [Tailwind CSS](https://tailwindcss.com/) shared by both `web` and `docs` applications
-`svelte-docs`: A documentation app with [SvelteKit](https://kit.svelte.dev/)
-`svelte-manga`: A web app with [SvelteKit](https://kit.svelte.dev/)
-`svelte-ui`: A Svelte component library shared by both `svelte-web` and `svelte-docs`
-`eslint-config-custom`: ESLint configurations (includes `eslint-config-next`, `eslint-plugin-svelte`, and `eslint-config-prettier`)
-`tsconfig`: `tsconfig.json` files used throughout the monorepo
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+2. **Navigate to the project directory.**
+   ```
+   cd simple-vector-store
+   ```
 
-### Building `packages/ui`
+3. **Create a virtual environment.**
+   ```
+   python -m venv venv
+   ```
 
-This example is set up to build `packages/ui` and output the transpiled source and compiled styles to `dist/`. This is done to share one `tailwind.config.js` easily and ensure that only the CSS used by the current application and its dependencies is generated.
-An alternative is to consume `packages/ui` directly from source without building. If you choose this option, update your `tailwind.config.js` to recognize your package locations, so it can find all usages of the `tailwindcss` class names. For instance:
+4. **Activate the virtual environment.**
+   ```
+   source venv/bin/activate
+   ```
 
-```js
-  content: [
-    // App content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // Include packages if not transpiling
-    "../../packages/**/*.{js,ts,jsx,tsx}",
-  ],
+5. **Install the required dependencies.**
+   ```
+   pip install numpy
+   ```
+
+## Usage
+To use the Vector Store in your own projects, follow the example code below:
+
+```python
+# Import the VectorStore class
+from vectorstore import VectorStore
+
+# Create an instance of the VectorStore
+vector_store = VectorStore()
+
+# Add a vector to the store
+vector_store.add_vector(vector_id, vector_data)
+
+# Retrieve a vector from the store
+vector = vector_store.get_vector(vector_id)
+
+# Update the index of a vector in the store
+vector_store.update_index(vector_id, updated_vector_data)
+
+# Find similar vectors in the store based on a query vector
+similar_vectors = vector_store.find_similar_vectors(query_vector, num_results)
 ```
+Make sure to replace `vector_id`, `vector_data`, `updated_vector_data`, `query_vector`, and `num_results` with appropriate values as per your specific use case.
 
-### Utilities
+## Contributing
+Contributions to this project are always welcome. If you find any bugs or have suggestions for improvement, please open an issue on the GitHub repository. To contribute code changes, follow these steps:
 
-This Turborepo includes a set of useful tools:
-[Tailwind CSS](https://tailwindcss.com/) for styling
-[TypeScript](https://www.typescriptlang.org/) for static type checking
-[ESLint](https://eslint.org/) for code linting
-[Prettier](https://prettier.io/) for code formatting
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Open a pull request to the main repository.
 
-# Turborepo Docker Starter
+## License
+This project is licensed under the MIT License. Feel free to use and modify the code as per the terms of the license.
 
-This repository is your Turborepo Docker starter pack. It's designed to help you quickly set up a Turborepo project that includes a Docker-based deployment workflow.
+For more details, refer to the LICENSE file.
 
-## Getting Started
-
-1. Build the Docker containers and start the applications:
-
-```sh
-  docker network create minfuel-turborepo
-  COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f docker-compose.yml build
-  docker-compose -f docker-compose.yml up -d
-
-```
-
-Open [http://localhost:3000](http://localhost:3000/) in your browser.
-
-2. To shut down all running containers:
-
-```sh
-  docker kill $(docker ps -q) && docker rm $(docker ps -a -q)
-
-```
-
-### Remote Caching
-
-This Turborepo includes optional remote caching. In the Dockerfiles of the apps, uncomment the build arguments for `TURBO_TEAM` and `TURBO_TOKEN`. Then, pass these build arguments to your Docker build.
-You can test this behavior using a command like:
-`docker build -f apps/svelte-manga/Dockerfile . --build
-
-### adding new projects with their own git history
-```sh
-git subtree add --prefix=apps/anime-site https://github.com/valiantlynx/anime-site.git master --squash
-git subtree pull --prefix=apps/anime-site https://github.com/valiantlynx/anime-site.git master --squash
-git subtree push --prefix=apps/anime-site https://github.com/valiantlynx/anime-site.git master
-
-```
-
-### publishing packages 
-```sh
-yarn publish:packages // this will publish all packages that are not private
-```
-
-free svg icons: https://www.svgrepo.com/svg/122485/car-placeholder
+Thank you for showing interest in this Vector Store project. If you have any questions or need further assistance, please reach out through the GitHub repository or my social media channels. Happy coding!
